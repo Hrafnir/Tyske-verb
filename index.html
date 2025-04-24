@@ -17,13 +17,15 @@
             <div id="tense-select-container">
                 <label for="tense-select">Velg tid å øve på:</label>
                 <select id="tense-select">
-                    <option value="presens" selected>Presens (Nåtid)</option>
-                    <option value="präteritum">Präteritum (Fortid)</option>
-                    <option value="perfektum">Perfektum (Fortid)</option>
+                    <!-- NYTT: Tilfeldig som default -->
+                    <option value="random" selected>Tilfeldig Tid</option>
+                    <option value="presens">Kun Presens (Nåtid)</option>
+                    <option value="präteritum">Kun Präteritum (Fortid)</option>
+                    <option value="perfektum">Kun Perfektum (Fortid)</option>
                 </select>
             </div>
 
-            <p id="instruction">Bøy verbet i <span id="current-tense-display">Presens</span>!</p>
+            <p id="instruction">Bøy verbet i <span id="current-tense-display"></span>!</p>
 
             <div id="verb-prompt">
                 <span id="pronomen"></span> (<span id="infinitiv"></span>)
@@ -52,7 +54,10 @@
 
          <hr> <!-- Skillelinje -->
 
-        <!-- Læringsseksjon -->
+        <!-- NYTT: Knappe for å vise/skjule bibliotek -->
+        <button id="toggle-library-button">Vis Verb-Bibliotek</button>
+
+        <!-- Læringsseksjon (skjult som standard) -->
         <div id="learning-section">
             <h2>Verb-Bibliotek</h2>
             <p>Her finner du en oversikt over verbene i appen og deres bøyninger.</p>
