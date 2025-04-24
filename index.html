@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerbMeister 3000 - Tysk Verbbøying</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <h1>VerbMeister 3000 🇩🇪</h1>
+        <p>Bøy verbet i presens!</p>
+
+        <div id="verb-prompt">
+            <span id="pronomen"></span> (<span id="infinitiv"></span>)
+        </div>
+
+        <input type="text" id="answer-input" placeholder="Skriv bøyd form her..." autocomplete="off">
+
+        <button id="submit-button">Sjekk Svar</button>
+
+        <div id="feedback-area">
+            <!-- Tilbakemelding vises her -->
+        </div>
+
+        <button id="next-button" style="display: none;">Neste Verb →</button>
+
+        <div id="verb-info" style="display: none;">
+            <p><strong>Info om <span class="info-infinitiv"></span>:</strong> <span class="info-type"></span> verb.</p>
+            <p class="info-rule" style="display: none;">Husk: <span class="info-rule-text"></span></p>
+        </div>
+
+        <div id="score-area">
+             Poeng: <span id="score">0</span> | Riktige på rad: <span id="streak">0</span> 🔥
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Tips: Husk vokalendring i 2. og 3. person entall for mange sterke verb!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
