@@ -3,41 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VerbMeister 3000 - Tysk Verbbøying</title>
+    <title>VerbMeister 3000 - Tysk Verbbøying+</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app-container">
         <h1>VerbMeister 3000 🇩🇪</h1>
-        <p>Bøy verbet i presens!</p>
 
-        <div id="verb-prompt">
-            <span id="pronomen"></span> (<span id="infinitiv"></span>)
+        <!-- Øvingsseksjon -->
+        <div id="quiz-section">
+            <h2>Øvingsmodus</h2>
+
+            <div id="tense-select-container">
+                <label for="tense-select">Velg tid å øve på:</label>
+                <select id="tense-select">
+                    <option value="presens" selected>Presens (Nåtid)</option>
+                    <option value="präteritum">Präteritum (Fortid)</option>
+                    <option value="perfektum">Perfektum (Fortid)</option>
+                </select>
+            </div>
+
+            <p id="instruction">Bøy verbet i <span id="current-tense-display">Presens</span>!</p>
+
+            <div id="verb-prompt">
+                <span id="pronomen"></span> (<span id="infinitiv"></span>)
+            </div>
+
+            <input type="text" id="answer-input" placeholder="Skriv bøyd form her..." autocomplete="off">
+
+            <button id="submit-button">Sjekk Svar</button>
+
+            <div id="feedback-area">
+                <!-- Tilbakemelding vises her -->
+            </div>
+
+            <button id="next-button" style="display: none;">Neste Verb →</button>
+
+            <div id="verb-info" style="display: none;">
+                <p><strong>Info om <span class="info-infinitiv"></span>:</strong> <span class="info-type"></span> verb.</p>
+                <p class="info-rule" style="display: none;">Husk: <span class="info-rule-text"></span></p>
+                <p class="info-perfektum-aux" style="display: none;">Perfektum med: <span class="info-aux-verb"></span></p>
+            </div>
+
+             <div id="score-area">
+                 Poeng: <span id="score">0</span> | Riktige på rad: <span id="streak">0</span> 🔥
+             </div>
         </div>
 
-        <input type="text" id="answer-input" placeholder="Skriv bøyd form her..." autocomplete="off">
+         <hr> <!-- Skillelinje -->
 
-        <button id="submit-button">Sjekk Svar</button>
-
-        <div id="feedback-area">
-            <!-- Tilbakemelding vises her -->
-        </div>
-
-        <button id="next-button" style="display: none;">Neste Verb →</button>
-
-        <div id="verb-info" style="display: none;">
-            <p><strong>Info om <span class="info-infinitiv"></span>:</strong> <span class="info-type"></span> verb.</p>
-            <p class="info-rule" style="display: none;">Husk: <span class="info-rule-text"></span></p>
-        </div>
-
-        <div id="score-area">
-             Poeng: <span id="score">0</span> | Riktige på rad: <span id="streak">0</span> 🔥
+        <!-- Læringsseksjon -->
+        <div id="learning-section">
+            <h2>Verb-Bibliotek</h2>
+            <p>Her finner du en oversikt over verbene i appen og deres bøyninger.</p>
+            <div id="verb-list">
+                <!-- Verb-tabeller genereres her av JavaScript -->
+            </div>
         </div>
 
     </div>
 
     <footer>
-        <p>Tips: Husk vokalendring i 2. og 3. person entall for mange sterke verb!</p>
+        <p>Tips: Sterke verb har ofte vokalendring i presens (du/er/sie/es) og *alltid* i Präteritum og Perfektum Partisipp!</p>
     </footer>
 
     <script src="script.js"></script>
