@@ -5,7 +5,7 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Endret for footer */
     align-items: center;
     min-height: 100vh;
     margin: 0;
@@ -19,60 +19,90 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
-    max-width: 500px;
+    max-width: 750px; /* Økt bredde for bibliotek */
     width: 100%;
+    margin-bottom: 20px; /* Plass før footer */
 }
 
 h1 {
     color: #4a4a4a;
     margin-bottom: 10px;
-    font-size: 2.5em; /* Litt større tittel */
+    font-size: 2.5em;
 }
 
-p {
+h2 {
+    color: #5a5a5a;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 40px 0;
+}
+
+/* --- Quiz Seksjon --- */
+#quiz-section p { /* Gjelder kun P inne i quiz-section */
     color: #666;
     margin-bottom: 20px;
 }
 
-#verb-prompt {
-    font-size: 1.8em; /* Større prompt */
+#tense-select-container {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+#tense-select-container label {
+    margin-right: 10px;
     font-weight: 600;
-    margin: 30px 0;
+    color: #555;
+}
+
+#tense-select {
+    padding: 8px 12px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+#instruction {
+    font-style: italic;
+    color: #444;
+}
+
+#verb-prompt {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin: 25px 0;
     color: #333;
     padding: 15px;
     background-color: #f0f0f0;
     border-radius: 8px;
-    display: inline-block; /* Slik at bakgrunnen passer teksten */
+    display: inline-block;
 }
 
-#pronomen {
-    color: #007bff; /* Blåfarge for pronomen */
-}
-
-#infinitiv {
-    color: #dc3545; /* Rødfarge for infinitiv */
-    font-style: italic;
-}
-
+#pronomen { color: #007bff; }
+#infinitiv { color: #dc3545; font-style: italic; }
 
 #answer-input {
-    width: calc(100% - 22px); /* Juster for padding */
+    width: calc(100% - 22px);
     padding: 15px;
     font-size: 1.2em;
     border: 2px solid #ccc;
     border-radius: 8px;
     margin-bottom: 20px;
-    box-sizing: border-box; /* Inkluder padding og border i bredden */
+    box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
-
-#answer-input:focus {
-    border-color: #764ba2;
-    outline: none;
-}
+#answer-input:focus { border-color: #764ba2; outline: none; }
 
 button {
-    background-color: #28a745; /* Grønn knapp */
+    background-color: #28a745;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -83,46 +113,23 @@ button {
     transition: background-color 0.3s ease, transform 0.1s ease;
     margin: 5px;
 }
+button:hover { background-color: #218838; transform: translateY(-2px); }
+button:active { transform: translateY(0px); }
 
-button:hover {
-    background-color: #218838; /* Mørkere grønn ved hover */
-    transform: translateY(-2px); /* Liten løfteeffekt */
-}
-
-button:active {
-     transform: translateY(0px); /* Tilbake ved klikk */
-}
-
-
-#next-button {
-    background-color: #007bff; /* Blå neste-knapp */
-}
-
-#next-button:hover {
-    background-color: #0056b3;
-}
+#next-button { background-color: #007bff; }
+#next-button:hover { background-color: #0056b3; }
 
 #feedback-area {
     margin-top: 20px;
     font-size: 1.3em;
     font-weight: bold;
-    min-height: 30px; /* Forhindrer hopping i layout */
+    min-height: 30px;
     padding: 10px;
     border-radius: 8px;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
-
-.correct {
-    color: #155724;
-    background-color: #d4edda; /* Lys grønn bakgrunn */
-    border: 1px solid #c3e6cb;
-}
-
-.incorrect {
-    color: #721c24;
-    background-color: #f8d7da; /* Lys rød bakgrunn */
-    border: 1px solid #f5c6cb;
-}
+.correct { color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
+.incorrect { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
 
 #verb-info {
     margin-top: 25px;
@@ -134,15 +141,9 @@ button:active {
     font-size: 0.9em;
     color: #444;
 }
-
-#verb-info p {
-    margin: 5px 0;
-    color: #444; /* Sørg for at p-tagger inni også får farge */
-}
-.info-rule {
-    font-style: italic;
-    font-weight: bold;
-}
+#verb-info p { margin: 5px 0; color: #444; }
+.info-rule { font-style: italic; font-weight: bold; }
+.info-perfektum-aux { font-weight: bold; }
 
 #score-area {
     margin-top: 30px;
@@ -151,38 +152,123 @@ button:active {
     font-weight: 600;
 }
 
+/* --- Læringsseksjon --- */
+#learning-section {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#learning-section p { /* Gjelder kun P inne i learning-section */
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center; /* Sentrerer p under H2 */
+}
+
+
+#verb-list {
+    margin-top: 20px;
+}
+
+.verb-entry {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.verb-entry h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #764ba2; /* Lilla for verbtittel */
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Håndterer smale skjermer */
+}
+
+.verb-type-badge {
+    font-size: 0.7em;
+    padding: 3px 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 10px; /* Plass fra verbet */
+}
+.verb-type-badge.svakt { background-color: #28a745; } /* Grønn */
+.verb-type-badge.sterkt { background-color: #dc3545; } /* Rød */
+.verb-type-badge.uregelmessig { background-color: #ffc107; color: #333; } /* Gul */
+.verb-type-badge.modalverb { background-color: #007bff; } /* Blå */
+
+
+.verb-rule {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    border-left: 3px solid #ffc107; /* Gult merke */
+    padding-left: 10px;
+}
+
+.conjugation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+.conjugation-table th,
+.conjugation-table td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.conjugation-table thead th {
+    background-color: #e9ecef;
+    color: #495057;
+    font-weight: 600;
+}
+
+.conjugation-table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa; /* Stripete rader */
+}
+
+.conjugation-table td:first-child {
+    font-weight: bold; /* Uthev pronomen */
+     color: #007bff;
+}
+
+/* --- Footer --- */
 footer {
     margin-top: 30px;
-    color: #eee; /* Lysere tekst for footer */
+    color: #eee;
     text-align: center;
     font-size: 0.9em;
     width: 100%;
+    padding-bottom: 20px; /* Litt luft nederst */
+}
+footer p { color: #eee; }
+
+/* --- Enkel responsivitet --- */
+@media (max-width: 768px) {
+    #app-container { padding: 20px 25px; max-width: 95%;}
+    h1 { font-size: 2em; }
+    #verb-prompt { font-size: 1.5em; }
+    #answer-input { font-size: 1em; padding: 12px; }
+    button { padding: 12px 25px; font-size: 1em; }
+    #feedback-area { font-size: 1.1em; }
+    .verb-entry h3 { font-size: 1.3em; }
+    .conjugation-table { font-size: 0.85em; }
+    .conjugation-table th, .conjugation-table td { padding: 6px 8px;}
 }
 
-footer p {
-     color: #eee; /* Override p style */
-}
-
-/* Enkel responsivitet */
-@media (max-width: 600px) {
-    #app-container {
-        padding: 20px;
-    }
-    h1 {
-        font-size: 2em;
-    }
-    #verb-prompt {
-        font-size: 1.5em;
-    }
-    #answer-input {
-        font-size: 1em;
-        padding: 12px;
-    }
-    button {
-        padding: 12px 25px;
-        font-size: 1em;
-    }
-    #feedback-area {
-        font-size: 1.1em;
-    }
+@media (max-width: 480px) {
+    .verb-entry h3 { flex-direction: column; align-items: flex-start; }
+    .verb-type-badge { margin-left: 0; margin-top: 5px; }
+    #tense-select-container { font-size: 1em; display: flex; flex-direction: column; align-items: center;}
+    #tense-select-container label { margin-bottom: 5px; }
 }
