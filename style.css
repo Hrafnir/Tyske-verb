@@ -272,3 +272,24 @@ footer p { color: #eee; }
     #tense-select-container { font-size: 1em; display: flex; flex-direction: column; align-items: center;}
     #tense-select-container label { margin-bottom: 5px; }
 }
+/* NYTT: Skjul læringsseksjonen som standard */
+#learning-section {
+    display: none; /* Skjult i utgangspunktet */
+    margin-top: 20px; /* Litt luft når den vises */
+    text-align: left;
+}
+
+/* NYTT: Styling for Vis/Skjul-knappen (valgfritt, kan justeres) */
+#toggle-library-button {
+    background-color: #6c757d; /* Grå knapp */
+    margin-top: 20px; /* Plass etter skillelinjen */
+    margin-bottom: 10px;
+    display: block; /* Gjør at den tar full bredde (eller inline-block for mindre) */
+    margin-left: auto; /* Sentrerer hvis display: block */
+    margin-right: auto; /* Sentrerer hvis display: block */
+    min-width: 200px; /* Sørger for en viss bredde */
+}
+
+#toggle-library-button:hover {
+    background-color: #5a6268;
+}
