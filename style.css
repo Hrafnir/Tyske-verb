@@ -5,7 +5,7 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
     display: flex;
-    flex-direction: column; /* Endret for footer */
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
     margin: 0;
@@ -19,9 +19,9 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
-    max-width: 750px; /* Økt bredde for bibliotek */
+    max-width: 750px;
     width: 100%;
-    margin-bottom: 20px; /* Plass før footer */
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -46,7 +46,7 @@ hr {
 }
 
 /* --- Quiz Seksjon --- */
-#quiz-section p { /* Gjelder kun P inne i quiz-section */
+#quiz-section p {
     color: #666;
     margin-bottom: 20px;
 }
@@ -73,6 +73,7 @@ hr {
 #instruction {
     font-style: italic;
     color: #444;
+    min-height: 1.2em; /* Forhindre hopping når teksten endres */
 }
 
 #verb-prompt {
@@ -154,16 +155,16 @@ button:active { transform: translateY(0px); }
 
 /* --- Læringsseksjon --- */
 #learning-section {
+    display: none; /* Skjult i utgangspunktet */
     margin-top: 20px;
     text-align: left;
 }
 
-#learning-section p { /* Gjelder kun P inne i learning-section */
+#learning-section p {
     color: #666;
     margin-bottom: 20px;
-    text-align: center; /* Sentrerer p under H2 */
+    text-align: center;
 }
-
 
 #verb-list {
     margin-top: 20px;
@@ -181,12 +182,12 @@ button:active { transform: translateY(0px); }
 .verb-entry h3 {
     margin-top: 0;
     margin-bottom: 10px;
-    color: #764ba2; /* Lilla for verbtittel */
+    color: #764ba2;
     font-size: 1.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Håndterer smale skjermer */
+    flex-wrap: wrap;
 }
 
 .verb-type-badge {
@@ -196,20 +197,19 @@ button:active { transform: translateY(0px); }
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    margin-left: 10px; /* Plass fra verbet */
+    margin-left: 10px;
 }
-.verb-type-badge.svakt { background-color: #28a745; } /* Grønn */
-.verb-type-badge.sterkt { background-color: #dc3545; } /* Rød */
-.verb-type-badge.uregelmessig { background-color: #ffc107; color: #333; } /* Gul */
-.verb-type-badge.modalverb { background-color: #007bff; } /* Blå */
-
+.verb-type-badge.svakt { background-color: #28a745; }
+.verb-type-badge.sterkt { background-color: #dc3545; }
+.verb-type-badge.uregelmessig { background-color: #ffc107; color: #333; }
+.verb-type-badge.modalverb { background-color: #007bff; }
 
 .verb-rule {
     font-style: italic;
     color: #555;
     margin-bottom: 15px;
     font-size: 0.9em;
-    border-left: 3px solid #ffc107; /* Gult merke */
+    border-left: 3px solid #ffc107;
     padding-left: 10px;
 }
 
@@ -234,12 +234,27 @@ button:active { transform: translateY(0px); }
 }
 
 .conjugation-table tbody tr:nth-child(odd) {
-    background-color: #f8f9fa; /* Stripete rader */
+    background-color: #f8f9fa;
 }
 
 .conjugation-table td:first-child {
-    font-weight: bold; /* Uthev pronomen */
-     color: #007bff;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* --- Vis/Skjul Bibliotek Knapp --- */
+#toggle-library-button {
+    background-color: #6c757d;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 200px;
+}
+
+#toggle-library-button:hover {
+    background-color: #5a6268;
 }
 
 /* --- Footer --- */
@@ -249,7 +264,7 @@ footer {
     text-align: center;
     font-size: 0.9em;
     width: 100%;
-    padding-bottom: 20px; /* Litt luft nederst */
+    padding-bottom: 20px;
 }
 footer p { color: #eee; }
 
@@ -271,25 +286,4 @@ footer p { color: #eee; }
     .verb-type-badge { margin-left: 0; margin-top: 5px; }
     #tense-select-container { font-size: 1em; display: flex; flex-direction: column; align-items: center;}
     #tense-select-container label { margin-bottom: 5px; }
-}
-/* NYTT: Skjul læringsseksjonen som standard */
-#learning-section {
-    display: none; /* Skjult i utgangspunktet */
-    margin-top: 20px; /* Litt luft når den vises */
-    text-align: left;
-}
-
-/* NYTT: Styling for Vis/Skjul-knappen (valgfritt, kan justeres) */
-#toggle-library-button {
-    background-color: #6c757d; /* Grå knapp */
-    margin-top: 20px; /* Plass etter skillelinjen */
-    margin-bottom: 10px;
-    display: block; /* Gjør at den tar full bredde (eller inline-block for mindre) */
-    margin-left: auto; /* Sentrerer hvis display: block */
-    margin-right: auto; /* Sentrerer hvis display: block */
-    min-width: 200px; /* Sørger for en viss bredde */
-}
-
-#toggle-library-button:hover {
-    background-color: #5a6268;
 }
